@@ -16,8 +16,8 @@ jobs:
             # Verify after pull code
             - run: ls -la 
               name: List Files
-            - run: sudo apt update
-            - run: sudo apt install zip
+            - run: sudo apt-get update
+            - run: sudo apt-get install zip
             - run: ls -la
             - run: cd ..
             - run: ls -la
