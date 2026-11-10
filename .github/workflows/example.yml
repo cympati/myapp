@@ -30,6 +30,7 @@ jobs:
             - run: cat ~/.ssh/known_hosts # = /home/runner , ~/home/runner = /home/runner/home/runner
             - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ubuntu@43.208.225.24:/home/ubuntu
               name: Send App Directory
+            - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 && ls -la && pwd
             
             
             
