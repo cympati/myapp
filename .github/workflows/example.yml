@@ -8,13 +8,19 @@ jobs:
         name: Deployment
         runs-on: ubuntu-latest
 
-        # install > set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > zip app > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
+        #  set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > install and update apt > zip app > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
         steps:
+            # - run: git clone && git checkout deploy # use marketplace
             - uses: actions/checkout@v4
               name: Pull Code
-            - run: ls -la # Verify after pull code
+            # Verify after pull code
+            - run: ls -la 
               name: List Files
-            # - run: git clone && git checkout deploy # use marketplace
+            - run: sudo apt update
+            - run: sudo apt install zip
+            - run: ls -la
+            - run: cd ..
+            - run: ls -la
             # - run: zip myapp.zip 
 
     
