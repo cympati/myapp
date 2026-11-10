@@ -16,11 +16,11 @@ jobs:
             # Verify after pull code
             - run: ls -la 
               name: List Files
-            - run: sudo apt-get update
-            - run: sudo apt-get install zip
-            - run: ls -la
-            - run: cd ..
-            - run: ls -la
+            # - run: sudo apt-get update # No need to update apt list
+            # - run: sudo apt-get install zip # github intall zip มาให้
+            - run: pwd
+            - run: cd .. && ls -la
+            # - run: 
             # - run: zip myapp.zip 
 
     
