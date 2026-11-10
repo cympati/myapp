@@ -32,6 +32,11 @@ jobs:
               name: Send App Directory
             - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "ls -la && pwd"
               name: SSH
+            - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "pm2 stop index && rm -r myapp"
+              name: Stop and Remove old app version
+            - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "unzip myapp.zip && ls -la"
+              name: Unzip New App Version Directory
+              
             
             
             
