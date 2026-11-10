@@ -22,9 +22,9 @@ jobs:
             - run: cd .. && ls -la && zip -r myapp.zip myapp && ls -la && pwd
               name: Zip App Directory
             # - run: which scp && which ssh 
-            - run: echo "${{ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY }}" > ~/runner/work/myapp/server_key.pem
+            - run: echo "${{ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY }}" > /home/runner/work/myapp/server_key.pem
               name: Create Private Key
-            - run: scp -i ~/runner/work/myapp/server_key.pem ~/runner/work/myapp/myapp.zip ububtu@43.208.225.24:/home/ubuntu
+            - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ububtu@43.208.225.24:/home/ubuntu
               name: Send App Directory
             
             
