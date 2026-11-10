@@ -6,7 +6,7 @@ on:
 jobs:
     deploy:
         name: Deployment
-        runs-on: ubutu-latest
+        runs-on: ubuntu-latest
 
         # install > set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > zip app > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
         steps:
