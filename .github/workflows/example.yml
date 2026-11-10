@@ -11,3 +11,9 @@ jobs:
         steps:
             - run: ls -la
             - run: echo "Hello"
+    another-work:
+        name: Another Work
+        runs-on: ubuntu-latest
+
+        steps:
+            - run: echo "Another Work"
