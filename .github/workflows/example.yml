@@ -4,24 +4,18 @@ on:
         branches:
             - main
 jobs:
-    just-test:
-        name: Just My Example Test
-        runs-on: ubuntu-latest
+    deploy:
+        name: Deployment
+        runs-on: ubutu-latest
 
+        # install > set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > zip app > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
         steps:
-            - run: ls -la
-            - run: echo "Hello"
-    another-work:
-        name: Another Work
-        runs-on: ubuntu-latest
+            - uses: actions/checkout@v4
+              name: Pull Code
+            - run: ls -la # Verify after pull code
+              name: List Files
+            # - run: git clone && git checkout deploy # use marketplace
+            # - run: zip myapp.zip 
 
-        steps:
-            - run: echo "Another Work"
-    other-work:
-        name: Other Work
-        runs-on: ubuntu-latest
-        needs: [just-test, another-work]
-
-        steps:
-            - run: echo "Other Work"
+    
     
