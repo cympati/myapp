@@ -28,7 +28,7 @@ jobs:
             - run: mkdir ~/.ssh && echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
               name: Add Known Host
             - run: cat ~/.ssh/known_hosts # = /home/runner , ~/home/runner = /home/runner/home/runner
-            - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ububtu@43.208.225.24:/home/ubuntu
+            - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ubuntu@43.208.225.24:/home/ubuntu
               name: Send App Directory
             
             
