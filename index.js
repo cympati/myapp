@@ -19,6 +19,10 @@ app.get("/cream-deploy", (req, res) => {
     res.send("Deploy")
 })
 
+app.get("/health-check", (req, res) => {
+    res.send("Good!")
+})
+
 app.listen(1111, () => {
       console.log("starting server at port 1111");
 })

@@ -58,7 +58,6 @@ jobs:
                     cd myapp
                     npm install
                     pm2 start index
-                    pm2 list
                   "   
 
             # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "echo $PATH"
