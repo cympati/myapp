@@ -24,7 +24,7 @@ jobs:
             # - run: which scp && which ssh 
             - run: echo "${{ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY }}" > /home/runner/work/myapp/server_key.pem
               name: Create Private Key
-            - run: mkdir ~/.ssh && echo "${{ vars.PATIPHON_EC2_TH_PUBLIC_IP}} ${{secrets.PATIPHON_EC2_TH_SSH_RSA_KEY}}" > ~/.ssh/known_hosts
+            - run: mkdir ~/.ssh && echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
               name: Add Known Host
             - run: cat ~/.ssh/known_hosts # = /home/runner , ~/home/runner = /home/runner/home/runner
             - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ububtu@43.208.225.24:/home/ubuntu
