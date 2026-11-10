@@ -8,7 +8,7 @@ jobs:
         name: Deployment
         runs-on: ubuntu-latest
 
-        #  set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > install and update apt > zip app > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
+        #  set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > install and update apt [No need] > zip app > scp > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
         steps:
             # - run: git clone && git checkout deploy # use marketplace
             - uses: actions/checkout@v4
@@ -19,8 +19,9 @@ jobs:
             # - run: sudo apt-get update # No need to update apt list
             # - run: sudo apt-get install zip # github intall zip มาให้
             # - run: pwd
-            - run: cd .. && ls -la && zip -r myapp.zip myapp
+            - run: cd .. && ls -la && zip -r myapp.zip myapp && ls -la
               name: Zip App Directory
+            - run: which scp && which ssh
             # - run: 
             # - run: zip myapp.zip 
 
