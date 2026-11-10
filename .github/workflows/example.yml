@@ -18,8 +18,9 @@ jobs:
               name: List Files
             # - run: sudo apt-get update # No need to update apt list
             # - run: sudo apt-get install zip # github intall zip มาให้
-            - run: pwd
+            # - run: pwd
             - run: cd .. && ls -la
+            - run: zip -r myapp.zip myapp
             # - run: 
             # - run: zip myapp.zip 
 
