@@ -1,0 +1,13 @@
+name: My Example
+on: 
+    push:
+        branches:
+            - main
+jobs:
+    just-test:
+        name: Just My Example Test
+        runs-on: ubuntu-lastest
+
+        steps:
+            - run: ls -la
+            - run: echo "Hello"
