@@ -22,6 +22,17 @@ jobs:
             - run: cd .. && ls -la && zip -r myapp.zip myapp && ls -la && pwd
               name: Zip App Directory
             # - run: which scp && which ssh 
+
+            # Example 
+            # - name: abc
+            #     run: |
+            #         dasd
+            #         dsad "
+            #           sadsa
+            #           asddsa
+            #         "
+
+
             - run: echo "${{ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY }}" > /home/runner/work/myapp/server_key.pem
               name: Create Private Key
             - run: chmod 400 /home/runner/work/myapp/server_key.pem
@@ -30,12 +41,27 @@ jobs:
             - run: cat ~/.ssh/known_hosts # = /home/runner , ~/home/runner = /home/runner/home/runner
             - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ubuntu@43.208.225.24:/home/ubuntu
               name: Send App Directory
-            - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "ls -la && pwd"
-              name: SSH
-            - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "pm2 stop index && rm -r myapp"
-              name: Stop and Remove old app version
-            - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "unzip myapp.zip && ls -la"
-              name: Unzip New App Version Directory
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "ls -la && pwd"
+            #   name: SSH
+            
+            - name: "Remote server"
+              run: |
+                  ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "
+                    ls -la && pwd
+                    export PATH=\"/home/ubuntu/.local/share/fnm:\$PATH\"
+                    eval \"\$(fnm env --use-on-cd)\"
+                    pm2 stop index
+                    rm -r myapp
+                    unzip myapp.zip
+                    ls -la
+                  "   
+
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "echo $PATH"
+            #   name: Echo PATH
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "pm2 stop index && rm -r myapp"
+            #   name: Stop and Remove old app version
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "unzip myapp.zip && ls -la"
+            #   name: Unzip New App Version Directory
               
             
             
