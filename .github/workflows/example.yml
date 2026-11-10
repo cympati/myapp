@@ -32,7 +32,6 @@ jobs:
             #           asddsa
             #         "
 
-
             - run: echo "${{ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY }}" > /home/runner/work/myapp/server_key.pem
               name: Create Private Key
             - run: chmod 400 /home/runner/work/myapp/server_key.pem
@@ -43,7 +42,13 @@ jobs:
               name: Send App Directory
             # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "ls -la && pwd"
             #   name: SSH
-            
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "echo $PATH"
+            #   name: Echo PATH
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "pm2 stop index && rm -r myapp"
+            #   name: Stop and Remove old app version
+            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "unzip myapp.zip && ls -la"
+            #   name: Unzip New App Version Directory
+            # In Short:
             - name: "Remote server"
               run: |
                   ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "
@@ -60,12 +65,7 @@ jobs:
                     pm2 start index
                   "   
 
-            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "echo $PATH"
-            #   name: Echo PATH
-            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "pm2 stop index && rm -r myapp"
-            #   name: Stop and Remove old app version
-            # - run: ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.208.225.24 "unzip myapp.zip && ls -la"
-            #   name: Unzip New App Version Directory
+            
               
             
             
