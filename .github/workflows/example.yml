@@ -26,6 +26,9 @@ jobs:
               name: Create Private Key
             - run: scp -i /home/runner/work/myapp/server_key.pem /home/runner/work/myapp/myapp.zip ububtu@43.208.225.24:/home/ubuntu
               name: Send App Directory
+            - run: echo "${{ vars.PATIPHON_EC2_TH_PUBLIC_IP}} ${{secrets.PATIPHON_EC2_TH_SSH_RSA_KEY}}" > ~/.ssh/known_hosts
+              name: Add Known Host
+            - run: cat ~/.ssh/known_hosts # = /home/runner , ~/home/runner = /home/runner/home/runner
             
             
 
