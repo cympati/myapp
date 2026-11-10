@@ -19,11 +19,11 @@ jobs:
             # - run: sudo apt-get update # No need to update apt list
             # - run: sudo apt-get install zip # github intall zip มาให้
             # - run: pwd
-            - run: cd .. && ls -la && zip -r myapp.zip myapp && ls -la
-              name: Zip App Directory
-            - run: which scp && which ssh
-            # - run: 
-            # - run: zip myapp.zip 
+            - run: cd .. && ls -la && zip -r myapp.zip myapp && ls -la && echo "$({ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY })" > server_key.pem && scp -i server_key.pem myapp.zip ububtu@43.208.225.24:/home/ubuntu
+              name: Zip and Send App Directory
+            # - run: which scp && which ssh 
+            
+            
 
     
     
