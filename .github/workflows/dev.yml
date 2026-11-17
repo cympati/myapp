@@ -8,8 +8,13 @@ jobs:
     name: Deployment
     runs-on: ubuntu-latest
     steps:
-      - run: ls -la
-        name: List Files 
+    # - run: git clone && git checkout deploy # use marketplace
+        - uses: actions/checkout@v7
+          with:
+            ref: dev
+          name: Pull Code
+        - run: ls -la 
+          name: List Files 
     #   - run: docker build -t patiphon28/myapp .
     #     name: Build Image
     #   - run: docker push patiphon28/myapp
