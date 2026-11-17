@@ -19,5 +19,8 @@ jobs:
           name: Build Image
         - run: docker images
           name: List Images
+        - run: echo "password" | docker login --username foo --password-stdin
+          name: Docker Login
         - run: docker push patiphon28/myapp
-          name: Push Image
+          name: Update Image
+        
