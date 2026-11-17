@@ -1,4 +1,10 @@
 {
+  "name": "myapp",
+  "version": "1.0.1",
+  "description": "my node app",
+  "main": "index.js",
+  "author": "patiphon",
+  "license": "MIT",
   "dependencies": {
     "express": "^5.3.0",
     "pug": "^3.0.4"
