@@ -23,6 +23,10 @@ app.get("/health-check", (req, res) => {
     res.send("Good!")
 })
 
-app.listen(1111, () => {
-      console.log("starting server at port 1111");
+app.get("/c", (req, res) => {
+    res.send("Welcome to Web C !")
+})
+
+app.listen(5555, () => {
+      console.log("starting server at port 5555");
 })

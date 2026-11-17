@@ -1,0 +1,16 @@
+name: Demo CD
+on:
+    push: 
+        branches:
+            - dev
+jobs:
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+    steps:
+      - run: docker images
+        name: List Images 1  
+      - run: docker pull patiphon28/myapp:latest
+        name: Pull Image
+      - run: docker images
+        name: List Images 2
