@@ -24,7 +24,7 @@ app.get("/health-check", (req, res) => {
 })
 
 app.get("/c", (req, res) => {
-    res.send("Welcome to Web Cream !")
+    res.send("Welcome to Web Cream")
 })
 
 app.listen(5555, () => {
