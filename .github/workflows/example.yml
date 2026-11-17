@@ -4,9 +4,18 @@ on:
         branches:
             - main
 jobs:
+    # Add CI
+    # test-job:
+    #     name: Test Job
+    #     runs-on: ubuntu-latest
+
+    #     steps:
+    #         run: yarn run ...
+    
     deploy:
         name: Deployment
         runs-on: ubuntu-latest
+        # needs: test-job
 
         #  set up git ? [No] > git clone ได้เลยเพราะมี credential มากับเครื่อง > install and update apt [No need] > zip app > scp > ssh > pm2 stop > remove app > unzip > cd app > install libs > pm2 start > remove zip file
         steps:
