@@ -10,7 +10,7 @@ jobs:
     steps:
       - run: docker images
         name: List Images 1  
-      - run: docker pull patiphon28/myapp:latest
+      - run: docker pull patiphon28/myapp:amd64
         name: Pull Image
       - run: docker images
         name: List Images 2
