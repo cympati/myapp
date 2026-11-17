@@ -15,9 +15,9 @@ jobs:
           name: Pull Code
         - run: ls -la && git branch
           name: List Files 
-    #   - run: docker build -t patiphon28/myapp .
-    #     name: Build Image
-    #   - run: docker push patiphon28/myapp
-    #     name: Push Image
-    #   - run: docker images
-    #     name: List Images 2
+        - run: docker build -t patiphon28/myapp .
+          name: Build Image
+        - run: docker images
+          name: List Images
+        - run: docker push patiphon28/myapp
+          name: Push Image
