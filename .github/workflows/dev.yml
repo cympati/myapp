@@ -15,7 +15,7 @@ jobs:
           name: Pull Code
         - run: ls -la && git branch
           name: List Files 
-        - run: docker build -t patiphon28/myapp .
+        - run: docker build --platform linux/amd64,linux/arm64 -t patiphon28/myweb .
           name: Build Image
         - run: docker images
           name: List Images
