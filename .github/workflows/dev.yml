@@ -13,7 +13,7 @@ jobs:
           with:
             ref: dev
           name: Pull Code
-        - run: ls -la && cat package.json
+        - run: ls -la && git branch
           name: List Files 
     #   - run: docker build -t patiphon28/myapp .
     #     name: Build Image
