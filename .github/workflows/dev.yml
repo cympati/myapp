@@ -29,5 +29,7 @@ jobs:
         - name: "Remote to Server"
           run: |
             ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.210.194.184 "
-                pwd
+                ls -la && pwd
+                cd apps
+                sudo docker compose up -d
             "
