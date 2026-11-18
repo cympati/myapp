@@ -31,5 +31,6 @@ jobs:
             ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.210.194.184 "
                 ls -la && pwd
                 cd apps
+                sudo docker compose pull 
                 sudo docker compose up -d
             "
