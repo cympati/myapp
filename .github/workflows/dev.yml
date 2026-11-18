@@ -20,3 +20,14 @@ jobs:
           name: Docker Login
         - run: docker push patiphon28/myapp
           name: Update Image
+        - run: echo "${{ secrets.PATIPHON_EC2_TH_SSH_PRIVATE_KEY }}" > /home/runner/work/myapp/server_key.pem
+          name: Create Private Key
+        - run: chmod 400 /home/runner/work/myapp/server_key.pem
+        - run: mkdir ~/.ssh && echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          name: Add Known Host
+        - run: cat ~/.ssh/known_hosts
+        - name: "Remote to Server"
+          run: |
+            ssh -i /home/runner/work/myapp/server_key.pem ubuntu@43.210.194.184 "
+                pwd
+            "
